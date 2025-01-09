@@ -9,7 +9,6 @@ export default function LoginPage() {
 
     const handleSubmit = (event) => {
       navigate('/dashboard');
-      
     };
   
     return (
