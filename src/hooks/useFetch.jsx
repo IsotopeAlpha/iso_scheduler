@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useFetch = (url, token) =>{
-    const [respond, setData] = useState([])
+const useFetch = (url) =>{
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
@@ -10,8 +10,9 @@ const useFetch = (url, token) =>{
       const fetchData = async () => {
         setLoading(true)
       try{
-        const res = await axios.get(url, {headers:{'Authorization':token}})
-        setData(res.data.data)
+        const res = await axios.get(url)
+        
+        setData(res.data)
       }catch(err){
         setError(err)
       }
@@ -32,7 +33,7 @@ const useFetch = (url, token) =>{
   setLoading(false) 
   };
 
-  return {respond, loading, error, reFetch}
+  return {data, loading, error, reFetch}
 }
 
 export default useFetch;
