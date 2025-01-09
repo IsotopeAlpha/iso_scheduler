@@ -66,9 +66,7 @@ export default function MeetingsCard(props) {
           <div className="flex gap-[5px]">
             <div className="font-bold">Participants:</div>
             <div className="flex gap-[10px] font-bold">
-              {props.participants.map((p) => (
-                <p>| {p} </p>
-              ))}
+              {props.participants}
             </div>
           </div>
           <div className="flex gap-[5px]">

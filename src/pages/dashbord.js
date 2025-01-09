@@ -8,26 +8,31 @@ import useFetch from "../hooks/useFetch";
 import axios from "axios";
 
 function SchedulerDashboard() {
-  // const { data: meetings, loading } = useFetch('https://iso-scheduler-api.onrender.com/schedules');
+  // const { data: meetings, loading } = useFetch('localhost:5000/schedules');
   // console.log(meetings)
   const [loading, setLoading] = useState(false)
-  const [meetings, setMeetings] = useState([])
+  const [meetings, setMeetings] = useState([
+    {title:"Meeting 1", description:"Agebda 1", date:"1 June 2025", time:"11:00am", participants:"Kofi, Ama, Kwame"},
+    {title:"Meeting 2", description:"Agebda 2", date:"1 July 2025", time:"11:00am", participants:"Kofi, Ama, Kwame"},
+    {title:"Meeting 3", description:"Agebda 3", date:"1 August 2025", time:"11:00am", participants:"Kofi, Ama, Kwame"},
+    {title:"Meeting 4", description:"Agebda 4", date:"1 September 2025", time:"11:00am", participants:"Kofi, Ama, Kwame"},
+  ])
   
-  const fetchData = async () => {
-    try {
-      const res = await axios.get(
-        "https://iso-scheduler-api.onrender.com/schedules"
-      );
+  // const fetchData = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       "0.0.0.0:5000/schedules"
+  //     );
 
-      console.log(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     console.log(res.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  useEffect(()=>{
-    fetchData()
-  })
+  // useEffect(()=>{
+  //   fetchData()
+  // })
 
   const handleSchedule = (event) => {
     window.location.href = "/schedule";
